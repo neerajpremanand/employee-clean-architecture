@@ -48,12 +48,8 @@ public class EmployeeRepositoryAdaptor implements EmployeeRepositoryPort {
     }
 
     private Employee convertToEmp(EmployeeJpaEntity jpaEmp){
-        Employee employee=new Employee();
+        Employee employee = Employee.createNew(jpaEmp.getName(),jpaEmp.getEmail(),jpaEmp.getDepartment(),jpaEmp.getSalary());
         employee .setId(jpaEmp.getId());
-        employee.setName(jpaEmp.getName());
-        employee.setEmail(jpaEmp.getEmail());
-        employee.setDepartment(jpaEmp.getDepartment());
-        employee.setSalary(jpaEmp.getSalary());
         return employee;
     }
 

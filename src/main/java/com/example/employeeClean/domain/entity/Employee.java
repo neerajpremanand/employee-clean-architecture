@@ -6,54 +6,46 @@ public class Employee {
     private String department;
     private Double salary;
 
-    public Long getId() {
-        return id;
+    private Employee(Long id, String name, String email, String department, Double salary) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.department = department;
+        this.salary = salary;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public static Employee createNew(String name, String email, String department, Double salary){
+        return new Employee(null,name,email,department,salary);
+    }
+
+    public void updateDetails(Employee empDetails){
+        this.name = empDetails.getName();
+        this.email = empDetails.getEmail();
+        this.department = empDetails.getDepartment();
+        this.salary = empDetails.getSalary();
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getEmail() {
         return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getDepartment() {
         return department;
     }
 
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
     public Double getSalary() {
         return salary;
     }
 
-    public void setSalary(Double salary) {
-        this.salary = salary;
-    }
-
-    public Employee(Long id, String name, String email, String department, Double salary) {
+    public void setId(Long id) {
         this.id = id;
-        this.name = name;
-        this.email = email;
-        this.department = department;
-        this.salary = salary;
     }
-
-    public Employee(){}
-
 }

@@ -35,10 +35,7 @@ public class EmployeeUseCase implements EmployeeService {
     @Override
     public Employee updateEmployee(Long id, Employee employeeDetails) {
         Employee empTemp = employeeRepositoryPort.findById(id).orElseThrow(()->new RuntimeException("Employee Not Found"));
-        empTemp.setName(employeeDetails.getName());
-        empTemp.setDepartment(employeeDetails.getDepartment());
-        empTemp.setEmail(employeeDetails.getEmail());
-        empTemp.setSalary(employeeDetails.getSalary());
+        empTemp.updateDetails(employeeDetails);
         return employeeRepositoryPort.save(empTemp);
     }
 
